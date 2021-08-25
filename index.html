@@ -9,28 +9,92 @@
 </head>
 <!-- <link rel="stylesheet" href="style.css"> -->
 <style>
-.gridwrapper {
-    display: grid;
-    grid-template-columns: 1pc 1pc 1pc;
-    grid-template-rows: 1pc 1pc 1pc;
-    border: 2px solid black
 
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4{
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin-top: 400px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.gridwrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.boardwrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+}
+
+.button {
+    background-color: darksalmon;
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 250px;
+}
+
+.input {
+    font-size: 30px;
+    text-align: center;
+}
+
+.turnbanner {
+    text-align: center;
+    font-size: 60px;
+}
+
+#xturn {
+    background-color: red;
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 250px;
 }
 
 
+#oturn {
+    background-color: green;
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 250px;
+}
+
 </style>
 <body>
+    <header><h1>Welcome to Tic Tac Toe</h1></header>
+
     <div class = "gridwrapper">
-        <div class = ""
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
+        <div class = "boardwrapper">
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+            <div class = "button"></div>
+
+
+        </div>
+        <div class="turnbanner">It is X's turn</div>
     </div>
 </body>
 <script src="app.js"></script>
