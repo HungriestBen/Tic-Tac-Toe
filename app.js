@@ -145,9 +145,18 @@ function checkWinConditions(player) {
             }
             
             if (player === "x") {
+
             xScore.textContent = Number(xScore.textContent) + 1
+            animateRyuTatsu()
+            animateKenBlock()
+            return
             } else if (player === "o")
+            
             oScore.textContent = Number(oScore.textContent) + 1
+            animateRyuBlock()
+            animateKenTatsu()
+            return
+
             
     } 
 //2
@@ -161,10 +170,15 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuKick()
+                animateKenBlock()
+                return
+
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
-
-            console.log("POTATO");
+                animateKenHadou()
+                animateRyuBlock()
+                return
     }
 //3
     if (allButtons[6].className === playerButton && 
@@ -177,9 +191,14 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuKick();
+                animateKenBlock();
+                return
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
-
+                animateKenShoryuken();
+                animateRyuBlock();
+                return
             console.log("POTATO");
     }
 //4 
@@ -193,10 +212,16 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuTatsu()
+                animateKenBlock()
+                return
+
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
+                animateRyuBlock()
+                animateKenTatsu()
+                return
 
-            console.log("POTATO");
     }
 //5
     if (allButtons[1].className === playerButton && 
@@ -209,10 +234,16 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuKick()
+                animateKenBlock()
+                return
+
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
+                animateKenHadou()
+                animateRyuBlock()
+                return
 
-            console.log("POTATO");
         }
 //6    
     if (allButtons[2].className === playerButton && 
@@ -225,10 +256,16 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuKick();
+                animateKenBlock();
+                return
+
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
+                animateKenShoryuken();
+                animateRyuBlock();
+                return
 
-            console.log("POTATO");
         }
 //7
     if (allButtons[0].className === playerButton && 
@@ -241,8 +278,15 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuTatsu()
+                animateKenBlock()
+                return
+
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
+                animateRyuBlock()
+                animateKenTatsu()
+                return
 
             console.log("POTATO");
         }
@@ -257,9 +301,15 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
+                animateRyuKick()
+                animateKenBlock()
+                return
+
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
-            console.log("POTATO");
+                animateKenHadou()
+                animateRyuBlock()
+                return
         }
 
         // allButtons.forEach(function(element) {
@@ -292,3 +342,69 @@ function checkWinConditions(player) {
 //EG. IF WIN CONDITION MET === TRUE - PAUSE ALL DIV EVENT LISTENERS?
 //
 //I HAVE A FUNCTION LOOP TO CHECK WIN CONDITION
+
+
+
+// Animate characters
+
+// KEN
+
+var kenStance = document.querySelector(".stance")
+var kenShoryuken = "blob:https://giphy.com/5f4066a2-23e6-417a-a17e-9c96e3f9dc48"
+var kenTatsu = "https://media2.giphy.com/media/3ka2vcihsvnEXbTJUa/giphy.gif?cid=790b7611dbb4b258d48832a6b8124f2b7b549cde7cc4c9fd&rid=giphy.gif&ct=s"
+var kenHadou = "https://media0.giphy.com/media/c9rZZJCE3tNUNwB51k/giphy.gif?cid=790b7611570d4b5dc34c593635a6f171bddbd41c549f8c11&rid=giphy.gif&ct=s"
+var kenBlock = "https://media0.giphy.com/media/Toykt4iRJpuFBSothA/giphy.gif?cid=790b76111b2928a0f5b2c730e5f4f857aced2042fb204a1c&rid=giphy.gif&ct=s"
+kenStance.src = "https://media4.giphy.com/media/1EUYUXmNtqXvMflSUa/giphy.gif?cid=790b7611ccc03c9ca72821f1229202e6be5d02c6729893e4&rid=giphy.gif&ct=s"
+
+function animateKenShoryuken () {
+    kenStance.src = kenShoryuKen
+    setTimeout(KenReturnToStance, 1000);
+}
+function animateKenTatsu () {
+    kenStance.src = kenTatsu
+    setTimeout(KenReturnToStance, 1000);
+}
+
+function animateKenHadou () {
+    // kenStance = document.querySelector("stance")
+    // kenTatsu = document.querySelector("tatsu")
+    kenStance.src = kenHadou
+    setTimeout(KenReturnToStance, 1000);
+}
+function animateKenBlock () {
+    kenStance.src = kenBlock
+    setTimeout(KenReturnToStance, 1000);
+}
+
+function KenReturnToStance () {
+    kenStance.src = "https://media4.giphy.com/media/1EUYUXmNtqXvMflSUa/giphy.gif?cid=790b7611ccc03c9ca72821f1229202e6be5d02c6729893e4&rid=giphy.gif&ct=s"
+}
+
+
+/// Now lets animate RYU
+
+var ryuStance = document.querySelector(".ryustance")
+
+var ryuTatsu = "https://www.fightersgeneration.com/characters3/ryu-hurricane-ts.gif"
+var ryuStancePose = "https://www.fightersgeneration.com/characters3/ryu-ts-stance.gif"
+var ryuKick = "https://www.fightersgeneration.com/characters3/ryu-hk.gif"
+var ryuBlock = "https://www.fightersgeneration.com/characters3/ryu-stand-hit.gif"
+
+function RyuReturnToStance () {
+    ryuStance.src = ryuStancePose
+}
+
+function animateRyuBlock () {
+    ryuStance.src = ryuBlock
+    setTimeout(RyuReturnToStance, 1000);
+}
+
+function animateRyuTatsu () {
+    ryuStance.src = ryuTatsu
+    setTimeout(RyuReturnToStance, 1000);
+}
+
+function animateRyuKick () {
+    ryuStance.src = ryuKick;
+    setTimeout(RyuReturnToStance, 1000);
+}
