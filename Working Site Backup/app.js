@@ -1,22 +1,13 @@
 var allButtons = document.querySelectorAll(".button");
-var turnBanner = document.querySelector(".turnbanner");
-var resetButton = document.querySelector(".resetButton");
-var resetScores = document.querySelector(".resetscores")
-var playerOneName = document.querySelector(".playerone")
-var playerTwoName = document.querySelector(".playertwo")
-
+var turnBanner = document.querySelector(".turnbanner")
+var resetButton = document.querySelector(".resetButton")
 //How to determine player turn
 //Odd and even numbers?
 
-var turnCounter = 0;
+var turnCounter = 0
 //If turnCounter is odd display O
 //Else if turnCounter is even display X
 
-
-// var xScore = document.querySelector(".xscore")
-var xScore = document.querySelector(".xscore");
-
-var oScore = document.querySelector(".oscore");
 
 // for (number = 0; number <= 20; number = number + 1) {
 //     if (number % 2 === 0) {
@@ -26,57 +17,13 @@ var oScore = document.querySelector(".oscore");
 // }
 
 
-// Background flair
-var cat = "https://pbs.twimg.com/profile_images/1080545769034108928/CEzHCTpI.jpg"
-var dog = "https://wallpaperaccess.com/full/4160221.jpg"
-
 
 //Create add listeners for each box
 for (i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener("click", handleClick);
 }
-
-
-//Function for all buttons
-function handleClick (event) {
-    if (event.target.textContent !== "") {
-        return;
-    }
-    if (turnCounter % 2 === 0) {
-        turnBanner.textContent = "It is O's turn";
-        event.target.textContent = "X";
-        event.target.style.backgroundImage = cat // IMAGE BACKGROUND DOESN'T WORK
-        event.target.className = "xturn button";
-        turnCounter = turnCounter + 1;
-        checkWinConditions("x");
-        
-    } else if (turnCounter % 2 !== 0) {
-        turnBanner.textContent = "It is X's turn";
-        event.target.textContent = "O";
-        event.target.style.backgroundImage = dog // IMAGE BACKGROUND DOESN'T WORK
-        event.target.className = "oturn button";
-        turnCounter = turnCounter - 1;
-        checkWinConditions("o");
-    }
-}
-
 //Create add listener for reset button
 resetButton.addEventListener("click", clickReset);
-//Create add listener for resetScores button
-resetScores.addEventListener('click', clickResetScores)
-//Create add listener for playerone name
-playerOneName.addEventListener("click", clickPlayerOneName)
-console.log("Clicking playeonename")
-//Create add listener for playertwo name
-playerTwoName.addEventListener("click", clickPlayerTwoName)
-
-
-
-
-
-
-
-
 //Function for reset
 
 function clickReset () {
@@ -92,42 +39,37 @@ function clickReset () {
         allButtons[i].addEventListener("click", handleClick);
     }
 }
-// Reset Score Function
-function clickResetScores () {
-    xScore.textContent = 0;
-    oScore.textContent = 0;
-}
 
-// Player one name
-function clickPlayerOneName () {
-    var namePrompt = prompt("Insert Player I Name");
-    playerOneName.textContent = namePrompt;
-    if (playerOneName.textContent === "") {
-        playerOneName.textContent = "Fine then be boring"
+
+//Function for all buttons
+function handleClick (event) {
+    if (event.target.textContent !== "") {
+        return;
+    }
+    if (turnCounter % 2 === 0) {
+        turnBanner.textContent = "It is O's turn";
+        event.target.textContent = "X";
+        event.target.className = "xturn button";
+        turnCounter = turnCounter + 1;
+        checkWinConditions("x");
+        
+    } else if (turnCounter % 2 !== 0) {
+        turnBanner.textContent = "It is X's turn";
+        event.target.textContent = "O";
+        event.target.className = "oturn button";
+        turnCounter = turnCounter - 1;
+        checkWinConditions("o");
     }
 }
-
-//PLayer two name input
-function clickPlayerTwoName () {
-    var namePrompt = prompt("Insert Player II Name");
-    playerTwoName.textContent = namePrompt;
-    if (playerTwoName.textContent === "") {
-        playerTwoName.textContent = "Fine then be boring"
-    }
-}
-
-
 // NOW TO DO WIN CONDITIONS ZZZZ
 // If 3 in a row on grid...win
 // Should i name the divs number eg. if div 1+2+3 = win
 // or 1+ 5+ 3 wins too, like a numpad.
 
-//
+/////////
+// winCondition1 = 
 
 //Win condition function....
-// TOTAL OF 8 WIN CONDITIONS
-//
-
 function checkWinConditions(player) {
     var playerButton = player + "turn button";
     console.log(playerButton);
@@ -139,16 +81,10 @@ function checkWinConditions(player) {
         allButtons[1].className === playerButton && 
         allButtons[2].className === playerButton) {
             turnBanner.textContent = winText;
-                        
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-            
-            if (player === "x") {
-            xScore.textContent = Number(xScore.textContent) + 1
-            } else if (player === "o")
-            oScore.textContent = Number(oScore.textContent) + 1
-            
+            console.log("POTATO");
     } 
 //2
     if (allButtons[3].className === playerButton && 
@@ -158,12 +94,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
-
             console.log("POTATO");
     }
 //3
@@ -174,12 +104,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
-
             console.log("POTATO");
     }
 //4 
@@ -190,12 +114,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
-
             console.log("POTATO");
     }
 //5
@@ -206,12 +124,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
-
             console.log("POTATO");
         }
 //6    
@@ -222,12 +134,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
-
             console.log("POTATO");
         }
 //7
@@ -238,12 +144,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
-
             console.log("POTATO");
         }
 //8
@@ -254,11 +154,6 @@ function checkWinConditions(player) {
             for (i = 0; i < allButtons.length; i++) {
                 allButtons[i].removeEventListener("click", handleClick);
             }
-
-            if (player === "x") {
-                xScore.textContent = Number(xScore.textContent) + 1
-                } else if (player === "o")
-                oScore.textContent = Number(oScore.textContent) + 1
             console.log("POTATO");
         }
 

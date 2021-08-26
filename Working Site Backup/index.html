@@ -13,10 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<link rel="stylesheet" href="style.css">
-<!-- <style>
+<!-- <link rel="stylesheet" href="style.css"> -->
+<style>
 
-/* * {
+* {
     box-sizing: border-box;
 }
 
@@ -44,23 +44,15 @@ h1 {
     width: 50%;
     margin: 20px auto;
 }
-
-.gamescreen {
+/* .pagewrapper {
     display: grid;
-    grid-template-columns: auto auto auto;
-}
-.leftgamescreen {
-    text-align: right;
-}
-
+    grid-template-columns: 1pc 2pc 1pc;
+} */
 .gridwrapper {
     width: 60%;
     margin: 0 auto;
 }
 
-.rightgamescreen {
-    text-align: left;
-}
 .boardwrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -111,46 +103,30 @@ h1 {
     margin: 20px auto;
     border: 1px solid black;
     width: 60%;
-} */
-
-
-</style> -->
+}
+</style>
 <body>
     
-    <div class = "gridwrapper">
-        <div class="emptytopspace"></div>
-        <header><h1 class="animate__animated animate__bounce">TIC TAC YO</h1></header>
-        <div class ="gamescreen">
+    <div class="pagewrapper">
+        <div class = "gridwrapper">
+            <div class="emptytopspace"></div>
+            <header><h1 class="animate__animated animate__bounce">TIC TAC YO</h1></header>
+            <div class = "boardwrapper">
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
+                <div class = "button"></div>
 
-            <div class="leftgamescreen">
-                <div class="playerone">Player I</div>
-                <!-- <input type="text"> -->
-                <div class="padding"></div>
-                <div class="xscore">0</div>
             </div>
-                
-                <div class = "boardwrapper">
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                    <div class = "button"></div>
-                </div>
+            <div class="turnbanner">It is X's turn</div>
+            <div class="resetButton">reset</div>
 
-            <div class="rightgamescreen">
-                <div class="playertwo">Player II</div>
-                <!-- <input type="text"> -->
-                <div class="padding"></div>
-                <div class="oscore">0</div>
-            </div>
         </div>
-        <div class="turnbanner">It is X's turn</div>
-        <div class="resetButton">reset</div>
-        <div class="resetscores">reset scores</div>
     </div>
 </body>
 <script src="app.js"></script>

@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color:rgb(200, 200, 200);
+}
+h1 {
+    font-size: 40px;
+    margin: 20px auto;
+}
+.emptytopspace {
+    height: 50px;
+}
+.header {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+}
+
+.gamescreen {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.leftgamescreen {
+    text-align: center;
+    font-size: 20px;
+}
+
+.gridwrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.rightgamescreen {
+    text-align: center;
+    font-size: 20px;
+}
+.boardwrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: fit-content;
+    margin: 0 auto;
+    border: 2px solid black;
+}
+
+.button {
+    background-color: grey;
+    height: 150px;
+    width: 150px;
+    border: 2px solid black;
+    text-align: center;    
+}
+
+.turnbanner {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px auto;
+}
+
+.xturn {
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 110px;
+    cursor: pointer;
+}
+
+
+.oturn {
+    background-color: green;
+    height: 150px;
+    width: 150px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 110px;
+    cursor: pointer;
+}
+
+.resetButton {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px auto;
+    border: 1px solid black;
+    width: 60%;
+}
+
+.resetscores {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px auto;
+    border: 1px solid black;
+    width: 60%; 
+}
+
+.padding {
+    padding: 20px;
+}
