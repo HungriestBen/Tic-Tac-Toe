@@ -71,6 +71,11 @@ h1 {
     width: 150px;
     border: 2px solid rgb(0, 0, 0);
     text-align: center;    
+    padding: 20px;
+}
+
+.resetButton {
+    cursor: pointer;
 }
 
 .turnbanner {
@@ -102,18 +107,21 @@ h1 {
 
 .resetButton {
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
     margin: 20px auto;
     border: 1px solid black;
     width: 60%;
+    cursor: pointer;
+    
 }
 
 .resetscores {
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
     margin: 20px auto;
     border: 1px solid black;
     width: 60%; 
+    cursor: pointer;
 }
 
 .padding {

@@ -164,7 +164,7 @@ function checkWinConditions(player) {
             xScore.textContent = Number(xScore.textContent) + 1
             animateRyuTatsu()
             animateKenBlock()
-            audioElement.play();
+            tatsuSound.play();
             kenHealth.value -= 20;
 
             return
@@ -174,7 +174,7 @@ function checkWinConditions(player) {
             animateRyuBlock()
             animateKenTatsu()
             ryuHealth.value -= 20;
-            audioElement.play();
+            tatsuSound.play();
             return
 
             
@@ -193,7 +193,7 @@ function checkWinConditions(player) {
                 animateRyuKick()
                 animateKenBlock()
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
 
                 } else if (player === "o")
@@ -201,7 +201,9 @@ function checkWinConditions(player) {
                 animateKenHadou()
                 animateRyuBlock()
                 ryuHealth.value -= 20;
-                audioElement.play();
+                hadoukenSound.play();
+
+
                 return
     }
 //3
@@ -218,14 +220,14 @@ function checkWinConditions(player) {
                 animateRyuKick();
                 animateKenBlock();
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenShoryuken();
                 animateRyuBlock();
                 ryuHealth.value -= 20;
-                audioElement.play();
+
                 return
             console.log("POTATO");
     }
@@ -243,7 +245,7 @@ function checkWinConditions(player) {
                 animateRyuTatsu()
                 animateKenBlock()
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
 
                 } else if (player === "o")
@@ -251,7 +253,7 @@ function checkWinConditions(player) {
                 animateRyuBlock()
                 animateKenTatsu()
                 ryuHealth.value -= 20;
-                audioElement.play();
+
                 return
 
     }
@@ -269,7 +271,7 @@ function checkWinConditions(player) {
                 animateRyuKick()
                 animateKenBlock()
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
 
                 } else if (player === "o")
@@ -277,7 +279,7 @@ function checkWinConditions(player) {
                 animateKenHadou()
                 animateRyuBlock()
                 ryuHealth.value -= 20;
-                audioElement.play();
+
                 return
 
         }
@@ -295,7 +297,7 @@ function checkWinConditions(player) {
                 animateRyuKick();
                 animateKenBlock();
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
 
                 } else if (player === "o")
@@ -303,7 +305,7 @@ function checkWinConditions(player) {
                 animateKenShoryuken();
                 animateRyuBlock();
                 ryuHealth.value -= 20;
-                audioElement.play();
+
                 return
 
         }
@@ -321,7 +323,7 @@ function checkWinConditions(player) {
                 animateRyuTatsu()
                 animateKenBlock()
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
 
                 } else if (player === "o")
@@ -329,7 +331,7 @@ function checkWinConditions(player) {
                 animateRyuBlock()
                 animateKenTatsu()
                 ryuHealth.value -= 20;
-                audioElement.play();
+
                 return
 
             console.log("POTATO");
@@ -348,7 +350,7 @@ function checkWinConditions(player) {
                 animateRyuKick()
                 animateKenBlock()
                 kenHealth.value -= 20;
-                audioElement.play();
+
                 return
 
                 } else if (player === "o")
@@ -356,7 +358,7 @@ function checkWinConditions(player) {
                 animateKenHadou()
                 animateRyuBlock()
                 ryuHealth.value -= 20;
-                audioElement.play();
+
                 return
         }
 
@@ -472,5 +474,13 @@ let kenHealth = document.getElementById("kenhealth")
 //// AUDIO SNIPPER
 
 var audioElement = new Audio("win.mp3")
-audioElement.volume = 0.3;
+audioElement.volume = 0.1;
 audioElement.play();
+
+var hadoukenSound = new Audio("hadouken.wav")
+hadoukenSound.volume = 0.1;
+hadoukenSound.play();
+
+var tatsuSound = new Audio("tatsu.wav")
+tatsuSound.volume = 0.1;
+tatsuSound.play();
