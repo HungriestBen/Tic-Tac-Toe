@@ -94,8 +94,23 @@ function clickReset () {
 }
 // Reset Score Function
 function clickResetScores () {
+    for (i = 0; i < allButtons.length; i++) {
+        allButtons[i].className = "button"
+    }
+    for (i = 0; i < allButtons.length; i++) {
+        allButtons[i].textContent = ""
+    }
+    turnCounter = 0
+    console.log("Click reset clicked")
+    for (i = 0; i < allButtons.length; i++) {
+        allButtons[i].addEventListener("click", handleClick);
+    }
     xScore.textContent = 0;
     oScore.textContent = 0;
+    document.querySelector("#ryuhealth").value = 100
+    document.querySelector("#kenhealth").value = 100
+    
+
 }
 
 // Player one name
@@ -149,12 +164,17 @@ function checkWinConditions(player) {
             xScore.textContent = Number(xScore.textContent) + 1
             animateRyuTatsu()
             animateKenBlock()
+            audioElement.play();
+            kenHealth.value -= 20;
+
             return
             } else if (player === "o")
             
             oScore.textContent = Number(oScore.textContent) + 1
             animateRyuBlock()
             animateKenTatsu()
+            ryuHealth.value -= 20;
+            audioElement.play();
             return
 
             
@@ -172,12 +192,16 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick()
                 animateKenBlock()
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenHadou()
                 animateRyuBlock()
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
     }
 //3
@@ -193,11 +217,15 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick();
                 animateKenBlock();
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenShoryuken();
                 animateRyuBlock();
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
             console.log("POTATO");
     }
@@ -214,12 +242,16 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuTatsu()
                 animateKenBlock()
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateRyuBlock()
                 animateKenTatsu()
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
 
     }
@@ -236,12 +268,16 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick()
                 animateKenBlock()
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenHadou()
                 animateRyuBlock()
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
 
         }
@@ -258,12 +294,16 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick();
                 animateKenBlock();
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenShoryuken();
                 animateRyuBlock();
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
 
         }
@@ -280,12 +320,16 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuTatsu()
                 animateKenBlock()
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateRyuBlock()
                 animateKenTatsu()
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
 
             console.log("POTATO");
@@ -303,12 +347,16 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick()
                 animateKenBlock()
+                kenHealth.value -= 20;
+                audioElement.play();
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenHadou()
                 animateRyuBlock()
+                ryuHealth.value -= 20;
+                audioElement.play();
                 return
         }
 
@@ -408,3 +456,21 @@ function animateRyuKick () {
     ryuStance.src = ryuKick;
     setTimeout(RyuReturnToStance, 1000);
 }
+
+
+//
+//
+//
+//RYU HEALTH
+let ryuHealth = document.getElementById("ryuhealth")
+// ryuHealth.value -= 20; //Or whatever you want to do with it.
+
+//KEN HEALTH
+let kenHealth = document.getElementById("kenhealth")
+// kenHealth.value -= 20; //Or whatever you want to do with it.
+
+//// AUDIO SNIPPER
+
+var audioElement = new Audio("win.mp3")
+audioElement.volume = 0.3;
+audioElement.play();

@@ -67,16 +67,26 @@ If there were no players by the end of the game it would run through the same wi
 -----
 
 Iterations to be worked on as of 26/8/21
-AKA UPCOMING CHANGES
+AKA UPCOMING CHANGES 
 -----
-Player names added
+Player names added 
 Player win count score tally
 Stylize the page better
 Have an animation on win
 
 
+UPDATE 27/8/21
+-----
+Player names added - DONE
+Player win count score tally - DONE
+Stylize the page better - STILL NEEDS WORK
 
 
+Upcoming changes
+Have an animation on win - STILL NOT DONE
+Animate reset buttons after win outcome
+Reset healh bars when scores are reset
+Win message updates to player name
 
-
-
+Structure and names are a bit off each time i added something
+eg Reset Scores is now reset game but still reset score classes
