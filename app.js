@@ -5,6 +5,8 @@ var resetScores = document.querySelector(".resetscores")
 var playerOneName = document.querySelector(".playerone")
 var playerTwoName = document.querySelector(".playertwo")
 
+turnBanner.textContent = playerOneName.textContent + "'s turn";
+
 //How to determine player turn
 //Odd and even numbers?
 
@@ -37,13 +39,14 @@ for (i = 0; i < allButtons.length; i++) {
 }
 
 
+
 //Function for all buttons
 function handleClick (event) {
     if (event.target.textContent !== "") {
         return;
     }
     if (turnCounter % 2 === 0) {
-        turnBanner.textContent = "It is O's turn";
+        turnBanner.textContent = playerOneName.textContent + "'s turn";
         event.target.textContent = "X";
         event.target.style.backgroundImage = cat // IMAGE BACKGROUND DOESN'T WORK
         event.target.className = "xturn button";
@@ -51,7 +54,7 @@ function handleClick (event) {
         checkWinConditions("x");
         
     } else if (turnCounter % 2 !== 0) {
-        turnBanner.textContent = "It is X's turn";
+        turnBanner.textContent = playerTwoName.textContent + "'s turn";
         event.target.textContent = "O";
         event.target.style.backgroundImage = dog // IMAGE BACKGROUND DOESN'T WORK
         event.target.className = "oturn button";
@@ -120,6 +123,8 @@ function clickPlayerOneName () {
     if (playerOneName.textContent === "") {
         playerOneName.textContent = "Fine then be boring"
     }
+    turnBanner.textContent = namePrompt + "'s turn"
+
 }
 
 //PLayer two name input
@@ -146,7 +151,14 @@ function clickPlayerTwoName () {
 function checkWinConditions(player) {
     var playerButton = player + "turn button";
     console.log(playerButton);
-    var winText = player.toUpperCase() + " WINS!";
+
+    if (player === "x") {
+        winText = playerOneName.textContent.toUpperCase() + " WINS!";
+    } else {
+        winText = playerTwoName.textContent.toUpperCase() + " WINS!";
+}
+
+
 
 //1 // If buttons 1,2,3 = function(x || o) win display appears at the bottom
     // Now figure out how to end the game
@@ -192,6 +204,7 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick()
                 animateKenBlock()
+                hitSound.play();
                 kenHealth.value -= 20;
 
                 return
@@ -199,9 +212,10 @@ function checkWinConditions(player) {
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenHadou()
+                hadoukenSound.play();
                 animateRyuBlock()
                 ryuHealth.value -= 20;
-                hadoukenSound.play();
+                
 
 
                 return
@@ -245,6 +259,7 @@ function checkWinConditions(player) {
                 animateRyuTatsu()
                 animateKenBlock()
                 kenHealth.value -= 20;
+                tatsuSound.play();
 
                 return
 
@@ -252,7 +267,9 @@ function checkWinConditions(player) {
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateRyuBlock()
                 animateKenTatsu()
+                tatsuSound.play();
                 ryuHealth.value -= 20;
+
 
                 return
 
@@ -269,6 +286,7 @@ function checkWinConditions(player) {
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick()
+                hitSound.play();
                 animateKenBlock()
                 kenHealth.value -= 20;
 
@@ -277,6 +295,7 @@ function checkWinConditions(player) {
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenHadou()
+                hadoukenSound.play();
                 animateRyuBlock()
                 ryuHealth.value -= 20;
 
@@ -295,6 +314,7 @@ function checkWinConditions(player) {
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick();
+                hitSound.play();
                 animateKenBlock();
                 kenHealth.value -= 20;
 
@@ -322,6 +342,7 @@ function checkWinConditions(player) {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuTatsu()
                 animateKenBlock()
+                tatsuSound.play();
                 kenHealth.value -= 20;
 
                 return
@@ -330,6 +351,7 @@ function checkWinConditions(player) {
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateRyuBlock()
                 animateKenTatsu()
+                tatsuSound.play();
                 ryuHealth.value -= 20;
 
                 return
@@ -348,6 +370,7 @@ function checkWinConditions(player) {
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
                 animateRyuKick()
+                hitSound.play();
                 animateKenBlock()
                 kenHealth.value -= 20;
 
@@ -356,6 +379,7 @@ function checkWinConditions(player) {
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
                 animateKenHadou()
+                hadoukenSound.play();
                 animateRyuBlock()
                 ryuHealth.value -= 20;
 
@@ -473,14 +497,35 @@ let kenHealth = document.getElementById("kenhealth")
 
 //// AUDIO SNIPPER
 
-var audioElement = new Audio("win.mp3")
-audioElement.volume = 0.1;
-audioElement.play();
-
 var hadoukenSound = new Audio("hadouken.wav")
 hadoukenSound.volume = 0.1;
-hadoukenSound.play();
+// hadoukenSound.play();
+
+var hitSound = new Audio("hit.mp3")
+hitSound.volume = 0.1;
+// hitSound.play();
 
 var tatsuSound = new Audio("tatsu.wav")
 tatsuSound.volume = 0.1;
-tatsuSound.play();
+// tatsuSound.play();
+
+var musicSound = new Audio("win.mp3")
+musicSound.volume = 0.1;
+// musicSound.play();
+
+
+
+// Add event listener for music
+var musicButton = document.querySelector(".musicbutton")
+musicButton.addEventListener("click", playMusic)
+
+function playMusic () {
+    if (musicSound.paused === true) {
+        musicSound.play();
+        musicButton.textContent = "music: on"
+    }else if (musicSound.paused === false) {
+        musicSound.pause();
+        musicButton.textContent = "music: off"
+    }
+}
+
