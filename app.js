@@ -113,7 +113,16 @@ function clickResetScores () {
     document.querySelector("#ryuhealth").value = 100
     document.querySelector("#kenhealth").value = 100
     
+    // To reset player turn display
+    turnBanner.textContent = playerOneName.textContent + "'s turn"
 
+    // Restore reset button to default
+    resetButton.addEventListener("click", clickReset);
+    resetButton.style.opacity = 1
+
+    //Reset player positions
+    kenStance.src = "https://media4.giphy.com/media/1EUYUXmNtqXvMflSUa/giphy.gif?cid=790b7611ccc03c9ca72821f1229202e6be5d02c6729893e4&rid=giphy.gif&ct=s"
+    ryuStance.src = "https://www.fightersgeneration.com/characters3/ryu-ts-stance.gif"
 }
 
 // Player one name
@@ -179,6 +188,12 @@ function checkWinConditions(player) {
             tatsuSound.play();
             kenHealth.value -= 20;
 
+            if (kenHealth.value === 0) {
+                loseSound.play();
+                animateKenLose ();
+                resetButton.removeEventListener("click", clickReset);
+                resetButton.style.opacity = 0.1
+            }
             return
             } else if (player === "o")
             
@@ -187,6 +202,14 @@ function checkWinConditions(player) {
             animateKenTatsu()
             ryuHealth.value -= 20;
             tatsuSound.play();
+            
+            if (ryuHealth.value === 0) {
+                loseSound.play();
+                animateRyuLose ();
+                resetButton.removeEventListener("click", clickReset);
+                resetButton.style.opacity = 0.1
+
+            }
             return
 
             
@@ -207,6 +230,12 @@ function checkWinConditions(player) {
                 hitSound.play();
                 kenHealth.value -= 20;
 
+                if (kenHealth.value === 0) {
+                    animateKenLose ();
+                    loseSound.play();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
 
                 } else if (player === "o")
@@ -216,8 +245,12 @@ function checkWinConditions(player) {
                 animateRyuBlock()
                 ryuHealth.value -= 20;
                 
-
-
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
     }
 //3
@@ -231,17 +264,33 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
-                animateRyuKick();
+                animateRyuPunch();
+                hitSound.play();
                 animateKenBlock();
                 kenHealth.value -= 20;
+
+                if (kenHealth.value === 0) {
+                    animateKenLose ();
+                    loseSound.play();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
 
                 return
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
-                animateKenShoryuken();
+                animateKenKick();
+                hitSound.play();
+                hitSound.play();
                 animateRyuBlock();
                 ryuHealth.value -= 20;
 
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
             console.log("POTATO");
     }
@@ -261,6 +310,13 @@ function checkWinConditions(player) {
                 kenHealth.value -= 20;
                 tatsuSound.play();
 
+                if (kenHealth.value === 0) {
+                    animateKenLose ();
+                    loseSound.play();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
+
                 return
 
                 } else if (player === "o")
@@ -271,6 +327,12 @@ function checkWinConditions(player) {
                 ryuHealth.value -= 20;
 
 
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
 
     }
@@ -290,6 +352,13 @@ function checkWinConditions(player) {
                 animateKenBlock()
                 kenHealth.value -= 20;
 
+                if (kenHealth.value === 0) {
+                    animateKenLose ();
+                    loseSound.play();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
+
                 return
 
                 } else if (player === "o")
@@ -299,6 +368,12 @@ function checkWinConditions(player) {
                 animateRyuBlock()
                 ryuHealth.value -= 20;
 
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
 
         }
@@ -313,19 +388,34 @@ function checkWinConditions(player) {
 
             if (player === "x") {
                 xScore.textContent = Number(xScore.textContent) + 1
-                animateRyuKick();
+                animateRyuPunch();
                 hitSound.play();
                 animateKenBlock();
                 kenHealth.value -= 20;
+
+                if (kenHealth.value === 0) {
+                    animateKenLose ();
+                    loseSound.play();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
 
                 return
 
                 } else if (player === "o")
                 oScore.textContent = Number(oScore.textContent) + 1
-                animateKenShoryuken();
+                animateKenKick();
+                hitSound.play();
+                hitSound.play();
                 animateRyuBlock();
                 ryuHealth.value -= 20;
 
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
 
         }
@@ -345,6 +435,13 @@ function checkWinConditions(player) {
                 tatsuSound.play();
                 kenHealth.value -= 20;
 
+                if (kenHealth.value === 0) {
+                    animateKenLose ();
+                    loseSound.play();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
+
                 return
 
                 } else if (player === "o")
@@ -354,6 +451,12 @@ function checkWinConditions(player) {
                 tatsuSound.play();
                 ryuHealth.value -= 20;
 
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
 
             console.log("POTATO");
@@ -374,6 +477,13 @@ function checkWinConditions(player) {
                 animateKenBlock()
                 kenHealth.value -= 20;
 
+                if (kenHealth.value === 0) {
+                    loseSound.play();
+                    animateKenLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
+
                 return
 
                 } else if (player === "o")
@@ -383,6 +493,12 @@ function checkWinConditions(player) {
                 animateRyuBlock()
                 ryuHealth.value -= 20;
 
+                if (ryuHealth.value === 0) {
+                    loseSound.play();
+                    animateRyuLose ();
+                    resetButton.removeEventListener("click", clickReset);
+                    resetButton.style.opacity = 0.1
+                }
                 return
         }
 
@@ -424,16 +540,36 @@ function checkWinConditions(player) {
 // KEN
 
 var kenStance = document.querySelector(".stance")
-var kenShoryuken = "blob:https://giphy.com/5f4066a2-23e6-417a-a17e-9c96e3f9dc48"
+var kenShoryuken = "https://media3.giphy.com/media/sajIWfnJjLIM3IwMZB/giphy.gif?cid=790b761190dc2a14f751b95862926242f9dd34d880e68dae&rid=giphy.gif&ct=s"
+var kenKnockdown = "https://media0.giphy.com/media/8pezita2MmJjORhUSb/giphy.gif?cid=790b76112164463c2bc5f26d5bcf185a9c1d2f42fb0c912a&rid=giphy.gif&ct=s"
+var kenKick = "https://media3.giphy.com/media/sajIWfnJjLIM3IwMZB/giphy.gif?cid=790b761190dc2a14f751b95862926242f9dd34d880e68dae&rid=giphy.gif&ct=s"
 var kenTatsu = "https://media2.giphy.com/media/3ka2vcihsvnEXbTJUa/giphy.gif?cid=790b7611dbb4b258d48832a6b8124f2b7b549cde7cc4c9fd&rid=giphy.gif&ct=s"
 var kenHadou = "https://media0.giphy.com/media/c9rZZJCE3tNUNwB51k/giphy.gif?cid=790b7611570d4b5dc34c593635a6f171bddbd41c549f8c11&rid=giphy.gif&ct=s"
-var kenBlock = "https://media0.giphy.com/media/Toykt4iRJpuFBSothA/giphy.gif?cid=790b76111b2928a0f5b2c730e5f4f857aced2042fb204a1c&rid=giphy.gif&ct=s"
+var kenBlock = "https://media4.giphy.com/media/h35INmeBG4B0jDYi0u/giphy.gif?cid=790b761154c35e9fd4e77a535bbca72608b1c2c61334c473&rid=giphy.gif&ct=s"
 kenStance.src = "https://media4.giphy.com/media/1EUYUXmNtqXvMflSUa/giphy.gif?cid=790b7611ccc03c9ca72821f1229202e6be5d02c6729893e4&rid=giphy.gif&ct=s"
+
+
+
+function animateKenLose () {
+    kenStance.src = kenKnockdown
+    setTimeout(kenLoseKO, 1000);
+}
+
+function kenLoseKO () {
+
+    kenStance.src = "kenlose.gif"
+}
 
 function animateKenShoryuken () {
     kenStance.src = kenShoryuKen
-    setTimeout(KenReturnToStance, 1000);
+    setTimeout(KenReturnToStance, 950);
 }
+
+function animateKenKick () {
+    kenStance.src = kenKick
+    setTimeout(KenReturnToStance, 600);
+}
+
 function animateKenTatsu () {
     kenStance.src = kenTatsu
     setTimeout(KenReturnToStance, 1000);
@@ -459,10 +595,22 @@ function KenReturnToStance () {
 
 var ryuStance = document.querySelector(".ryustance")
 
+var ryuKnockdown = "https://www.fightersgeneration.com/characters3/ryu-slam.gif"
 var ryuTatsu = "https://www.fightersgeneration.com/characters3/ryu-hurricane-ts.gif"
 var ryuStancePose = "https://www.fightersgeneration.com/characters3/ryu-ts-stance.gif"
 var ryuKick = "https://www.fightersgeneration.com/characters3/ryu-hk.gif"
 var ryuBlock = "https://www.fightersgeneration.com/characters3/ryu-stand-hit.gif"
+var ryuPunch = "https://www.fightersgeneration.com/characters3/ryu-fmp.gif"
+
+function animateRyuLose () {
+    ryuStance.src = ryuKnockdown
+    setTimeout(ryuLoseKO, 1000);
+}
+
+function ryuLoseKO () {
+
+    ryuStance.src = "ryulose.gif"
+}
 
 function RyuReturnToStance () {
     ryuStance.src = ryuStancePose
@@ -483,6 +631,10 @@ function animateRyuKick () {
     setTimeout(RyuReturnToStance, 1000);
 }
 
+function animateRyuPunch () {
+    ryuStance.src = ryuPunch;
+    setTimeout(RyuReturnToStance, 600);
+}
 
 //
 //
@@ -496,6 +648,9 @@ let kenHealth = document.getElementById("kenhealth")
 // kenHealth.value -= 20; //Or whatever you want to do with it.
 
 //// AUDIO SNIPPER
+var loseSound = new Audio("lose.mp3")
+loseSound.volume = 0.1;
+//loseSound.play();
 
 var hadoukenSound = new Audio("hadouken.wav")
 hadoukenSound.volume = 0.1;
