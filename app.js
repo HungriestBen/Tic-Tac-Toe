@@ -123,6 +123,14 @@ function clickResetScores () {
     //Reset player positions
     kenStance.src = "https://media4.giphy.com/media/1EUYUXmNtqXvMflSUa/giphy.gif?cid=790b7611ccc03c9ca72821f1229202e6be5d02c6729893e4&rid=giphy.gif&ct=s"
     ryuStance.src = "https://www.fightersgeneration.com/characters3/ryu-ts-stance.gif"
+
+    // Reset New Game button to stop blinking
+    resetScores.className = "resetscores"
+}
+
+function gameWon () {
+    resetScores.className = "resetscores animate__heartBeat"
+    resetScores.style.webkitAnimationIterationCount = "infinite"
 }
 
 // Player one name
@@ -187,12 +195,17 @@ function checkWinConditions(player) {
             animateKenBlock()
             tatsuSound.play();
             kenHealth.value -= 20;
+            
 
             if (kenHealth.value === 0) {
                 loseSound.play();
                 animateKenLose ();
                 resetButton.removeEventListener("click", clickReset);
                 resetButton.style.opacity = 0.1
+                setTimeout(animateRyuVictory, 3500)
+                setTimeout(youWinSound, 3000)
+                gameWon ()
+                
             }
             return
             } else if (player === "o")
@@ -200,14 +213,18 @@ function checkWinConditions(player) {
             oScore.textContent = Number(oScore.textContent) + 1
             animateRyuBlock()
             animateKenTatsu()
-            ryuHealth.value -= 20;
             tatsuSound.play();
+            ryuHealth.value -= 20;
+
             
             if (ryuHealth.value === 0) {
                 loseSound.play();
                 animateRyuLose ();
                 resetButton.removeEventListener("click", clickReset);
                 resetButton.style.opacity = 0.1
+                setTimeout(animateKenVictory, 3000)
+                setTimeout(youWinSound, 3000)
+                gameWon ()
 
             }
             return
@@ -235,6 +252,9 @@ function checkWinConditions(player) {
                     loseSound.play();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
                 return
 
@@ -250,6 +270,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ();
                 }
                 return
     }
@@ -274,6 +297,9 @@ function checkWinConditions(player) {
                     loseSound.play();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
 
                 return
@@ -290,6 +316,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
                 return
             console.log("POTATO");
@@ -315,6 +344,9 @@ function checkWinConditions(player) {
                     loseSound.play();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
 
                 return
@@ -332,6 +364,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
                 return
 
@@ -357,6 +392,9 @@ function checkWinConditions(player) {
                     loseSound.play();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
 
                 return
@@ -373,6 +411,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
                 return
 
@@ -398,6 +439,9 @@ function checkWinConditions(player) {
                     loseSound.play();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
 
                 return
@@ -415,6 +459,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
                 return
 
@@ -440,6 +487,9 @@ function checkWinConditions(player) {
                     loseSound.play();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
 
                 return
@@ -456,6 +506,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
                 return
 
@@ -482,6 +535,9 @@ function checkWinConditions(player) {
                     animateKenLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateRyuVictory, 3500)
+                    setTimeout(youWinSound, 3000)
+                    gameWon ()
                 }
 
                 return
@@ -498,6 +554,9 @@ function checkWinConditions(player) {
                     animateRyuLose ();
                     resetButton.removeEventListener("click", clickReset);
                     resetButton.style.opacity = 0.1
+                    setTimeout(animateKenVictory, 3000)
+                    setTimeout(youWinSound, 3000)
+                    gameWon () 
                 }
                 return
         }
@@ -546,9 +605,20 @@ var kenKick = "https://media3.giphy.com/media/sajIWfnJjLIM3IwMZB/giphy.gif?cid=7
 var kenTatsu = "https://media2.giphy.com/media/3ka2vcihsvnEXbTJUa/giphy.gif?cid=790b7611dbb4b258d48832a6b8124f2b7b549cde7cc4c9fd&rid=giphy.gif&ct=s"
 var kenHadou = "https://media0.giphy.com/media/c9rZZJCE3tNUNwB51k/giphy.gif?cid=790b7611570d4b5dc34c593635a6f171bddbd41c549f8c11&rid=giphy.gif&ct=s"
 var kenBlock = "https://media4.giphy.com/media/h35INmeBG4B0jDYi0u/giphy.gif?cid=790b761154c35e9fd4e77a535bbca72608b1c2c61334c473&rid=giphy.gif&ct=s"
+var kenVictory = "kenvictory.gif"
+var kenWinPose = "kenwinpose.gif"
 kenStance.src = "https://media4.giphy.com/media/1EUYUXmNtqXvMflSUa/giphy.gif?cid=790b7611ccc03c9ca72821f1229202e6be5d02c6729893e4&rid=giphy.gif&ct=s"
 
 
+
+function animateKenVictory () {
+    kenStance.src = kenVictory
+    // setTimeout(kenWins, 1500);
+}
+
+function kenWins () {
+    kenStance.src = kenWinPose
+}
 
 function animateKenLose () {
     kenStance.src = kenKnockdown
@@ -595,12 +665,22 @@ function KenReturnToStance () {
 
 var ryuStance = document.querySelector(".ryustance")
 
+var ryuVictory = "ryuvictory.gif"
 var ryuKnockdown = "https://www.fightersgeneration.com/characters3/ryu-slam.gif"
 var ryuTatsu = "https://www.fightersgeneration.com/characters3/ryu-hurricane-ts.gif"
 var ryuStancePose = "https://www.fightersgeneration.com/characters3/ryu-ts-stance.gif"
 var ryuKick = "https://www.fightersgeneration.com/characters3/ryu-hk.gif"
 var ryuBlock = "https://www.fightersgeneration.com/characters3/ryu-stand-hit.gif"
 var ryuPunch = "https://www.fightersgeneration.com/characters3/ryu-fmp.gif"
+
+
+function animateRyuVictory () {
+    ryuStance.src = ryuVictory;
+}
+
+function ryuWins () {
+    ryuStance.src = ryuVictory;
+}
 
 function animateRyuLose () {
     ryuStance.src = ryuKnockdown
@@ -668,7 +748,13 @@ var musicSound = new Audio("win.mp3")
 musicSound.volume = 0.1;
 // musicSound.play();
 
+var youWin = new Audio("youwin.wav")
+youWin.volume = 0.1;
+// youWin.play();
 
+function youWinSound () {
+    youWin.play();
+}
 
 // Add event listener for music
 var musicButton = document.querySelector(".musicbutton")
