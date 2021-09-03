@@ -144,3 +144,11 @@ progress {
     text-align: center;
     transition: all 300ms linear;
 }
+
+.playerone {
+    cursor: pointer;
+}
+
+.playertwo {
+    cursor: pointer;
+}
